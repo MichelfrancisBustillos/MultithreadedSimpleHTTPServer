@@ -1,4 +1,4 @@
-#!/bin/env python
+#! python3
 
 try:
 	# Python 2.x
@@ -46,15 +46,16 @@ while not os.path.isdir(directory):
 os.chdir(directory)
 directory = os.getcwd()
 
-print(“\033[H\033[J”)
+os.system('cls||clear')
+	
 print ('Server started on port %s at %s' % (port, directory))
 print ('Close Command Window to end.')
 
 server = ThreadingSimpleServer(('', port), SimpleHTTPRequestHandler)
+
 try:
 	while 1:
 		sys.stdout.flush()
 		server.handle_request()
 except KeyboardInterrupt:
 	print("Finished")
-	
